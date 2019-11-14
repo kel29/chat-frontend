@@ -13,6 +13,7 @@ class Login extends PureComponent {
     this.setState({ [e.target.id]: e.target.value })
   }
 
+
   userLogin = (e) => {
     e.preventDefault()
     let currentUser = this.props.users.find(user => user.email === this.state.email.toLowerCase() && user.name === this.state.username.toLowerCase())

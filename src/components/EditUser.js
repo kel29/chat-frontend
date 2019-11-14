@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import UpdatedUser from './UpdatedUser';
+import FailedUpdatedUser from './FailedUpdatedUser';
 
 class EditUser extends React.Component {
   state = {
-    username:'',
-    email: ''
+    username: '',
+    email: '',
+    updatedUser: ''
   }
 
   handleEmailInput = (e) => {
@@ -18,7 +21,8 @@ class EditUser extends React.Component {
     })
   }
 
-  updateUserInformation = () => {
+  updateUserInformation = (e) => {
+    e.preventDefault()
     const userId = JSON.parse(localStorage.getItem('currentUser'))['id'];
     const config = {
       method: 'PATCH',
@@ -33,17 +37,41 @@ class EditUser extends React.Component {
     }
     fetch(`http://localhost:3000/users/${userId}`, config) 
     .then(res => res.json())
-    .then(res => this.displayChanges(res))
-    .then(this.props.getUsers())
+    .then(updatedUsersObject => {
+      console.log(updatedUsersObject)
+      this.updateLocalStorage(updatedUsersObject)
+      this.updatedStatusOfUserChange(updatedUsersObject)
+    }) 
   }
 
-  displayChanges = (updatedUser) => {
-    // console.log("updating user information", updatedUser) TODO show user changed information
+  updatedStatusOfUserChange = (updatedUsersObject) => {
+    if(updatedUsersObject.id){
+      this.setState({
+        updatedUser: 'Updated'
+      })
+    } else {
+      this.setState({
+        updatedUser: 'Error'
+      })
+    }
+  }
+  
+  displayUpdatedAlert = () => {
+    if(this.state.updatedUser === 'Updated'){
+      return <UpdatedUser />
+    } else if (this.state.updatedUser === 'Error') {
+      return <FailedUpdatedUser />
+    }
+  }
+  
+  updateLocalStorage = (updatedUsersObject) => {
+    window.localStorage.setItem('currentUser', JSON.stringify(updatedUsersObject))
   }
 
     render(){
       return (
         <div>
+        {this.displayUpdatedAlert()}
       <div className='card bg-light mt-3 mb-3 shadow'>
         <div className='card-header'>
           <h3>Edit Your Account</h3> 
