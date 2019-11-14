@@ -38,7 +38,6 @@ class EditUser extends React.Component {
     fetch(`http://localhost:3000/users/${userId}`, config) 
     .then(res => res.json())
     .then(updatedUsersObject => {
-      console.log(updatedUsersObject)
       this.updateLocalStorage(updatedUsersObject)
       this.updatedStatusOfUserChange(updatedUsersObject)
     }) 
