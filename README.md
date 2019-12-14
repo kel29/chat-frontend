@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chat
+##### Created by [Ren Burnett](https://github.com/renburnett), [Ian Hunter Harold](https://github.com/ianhunterharold) and [Krista Loven](https://github.com/kel29)
 
-## Available Scripts
+Chat is a topic based live communication tool. Built ontop of ActionCable sockets, users can join into any existing conversation topic or start their own. 
 
-In the project directory, you can run:
+## Why Chat?
 
-### `yarn start`
+Chat was an enjoyable project to dive into for building an understanding of sockets. This project gave our team a great learning opportunity to have some fun playing with sockets, providers, and learning about frontend to server communication. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technology Used
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Chat was build with JavaScript and React for its front end. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The [backend](https://github.com/kel29/chat-server) was built using Ruby on Rails, taking advantage of ActionCables for socket functionality. User experience is complimented with Bootstrap styling. 
 
-### `yarn test`
+## DIY
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Chat is not _yet_ deployed (but don't worry, were working on it). If you'd like to fork or clone down the code yourself, we'd love to have you check it out. Please note, you'll want to grab the [Rails server](https://github.com/kel29/chat-server) as well. Chat was coded with React version 16.11.0. Depending on your bundler of choice, you'll want to run `npm install` or `yarn` first, and then you can run `npm start` or `yarn start` to see it in action. 
 
-### `yarn build`
+## Credits
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Shout out to Dakota Lillie's [great blog post](https://medium.com/@dakota.lillie/using-action-cable-with-react-c37df065f296) that helped us move in the right direction. Also, the hero of this story is probably [React ActionCable Provider](https://github.com/cpunion/react-actioncable-provider), who's library made our lives a lot easier. 
