@@ -9,6 +9,7 @@ import ChatWindow from './containers/ChatWindow'
 import { ActionCable } from 'react-actioncable-provider';
 import Cable from './components/Cable';
 import EditUser from './components/EditUser';
+import { API_ROOT } from './services/constants'
 
 class App extends Component {
   state = {
@@ -43,13 +44,13 @@ class App extends Component {
   }
 
   getUsers = () => {
-    fetch('http://localhost:3000/users')
+    fetch(`${API_ROOT}users`)
     .then(res=>res.json())
     .then(usersList => this.setState({users: usersList}))
   }
 
   getConvos = () => {
-    fetch('http://localhost:3000/conversations')
+    fetch(`${API_ROOT}conversations`)
     .then(res => res.json())
     .then((convoList) => this.setState({conversations: convoList}))
   }
@@ -80,7 +81,7 @@ class App extends Component {
   }
 
   updateCurrentConversation = (newMessage) => {
-    const conversations = [...this.state.conversations];
+    const conversations = [...this.state.conversations]
     const conversation = conversations.find(conversation => conversation.id === newMessage.conversation_id)
     const messageCopy = conversation.messages.find(message => message.id === newMessage.id)
     if (!messageCopy) {

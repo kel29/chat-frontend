@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import LoginAlert from '../components/LoginAlert'
 import LoggedInHOC from '../HOC/LoggedInHOC'
+import { API_ROOT, HEADERS } from '../services/constants'
 
 class Login extends PureComponent {
   state = {
@@ -32,12 +33,9 @@ class Login extends PureComponent {
   }
 
   createUser = () => {
-    return fetch('http://localhost:3000/users', {
+    return fetch(`${API_ROOT}users`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         name: this.state.username.toLowerCase(),
         email: this.state.email.toLowerCase()

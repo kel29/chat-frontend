@@ -1,6 +1,7 @@
 import React from 'react';
 import UpdatedUser from './UpdatedUser';
 import FailedUpdatedUser from './FailedUpdatedUser';
+import { API_ROOT, HEADERS } from '../services/constants'
 
 class EditUser extends React.Component {
   state = {
@@ -23,19 +24,16 @@ class EditUser extends React.Component {
 
   updateUserInformation = (e) => {
     e.preventDefault()
-    const userId = JSON.parse(localStorage.getItem('currentUser'))['id'];
+    const userId = JSON.parse(localStorage.getItem('currentUser'))['id']
     const config = {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         name: this.state.username.toLowerCase(),
         email: this.state.email.toLowerCase()
       })
     }
-    fetch(`http://localhost:3000/users/${userId}`, config) 
+    fetch(`${API_ROOT}users/${userId}`, config)
     .then(res => res.json())
     .then(updatedUsersObject => {
       this.updateLocalStorage(updatedUsersObject)

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { API_ROOT, HEADERS } from '../services/constants'
 
 class NewConversationForm extends PureComponent {
   state = {
@@ -16,16 +17,13 @@ class NewConversationForm extends PureComponent {
 
     const config = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         topic: this.state.topic
       })
     }
 
-    fetch('http://localhost:3000/conversations', config)
+    fetch(`${API_ROOT}conversations`, config)
     .then(res => res.json())
     .then(newTopic => {
       if (newTopic.id) {

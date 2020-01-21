@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { API_ROOT, HEADERS } from '../services/constants'
 
 class MessageForm extends PureComponent {
   state = {
@@ -12,10 +13,7 @@ class MessageForm extends PureComponent {
 
     const config = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         content: this.state.content,
         conversation_id: this.props.currentConversation.id,
@@ -24,7 +22,7 @@ class MessageForm extends PureComponent {
       })
     }
 
-    fetch('http://localhost:3000/messages', config)
+    fetch(`${API_ROOT}messages`, config)
     .then(res => res.json())
     .then(newMessage => {
       this.props.updateCurrentConversation(newMessage)
