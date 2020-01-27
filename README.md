@@ -4,7 +4,7 @@
 Chat is a topic based live communication tool. Built ontop of ActionCable sockets, users can join into any existing conversation topic or start their own. 
 
 ## Demo
-[![Watch the video](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)](https://youtu.be/EixPkb3cEQE)
+[![Watch the video](https://media.giphy.com/media/H4na9QOMJvdjfvclCU/giphy.gif)](https://youtu.be/EixPkb3cEQE)
 
 
 ## Why Chat?
