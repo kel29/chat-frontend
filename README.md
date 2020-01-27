@@ -3,6 +3,10 @@
 
 Chat is a topic based live communication tool. Built ontop of ActionCable sockets, users can join into any existing conversation topic or start their own. 
 
+## Demo
+[![Watch the video](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)](https://youtu.be/EixPkb3cEQE)
+
+
 ## Why Chat?
 
 Chat was an enjoyable project to dive into for building an understanding of sockets. This project gave our team a great learning opportunity to have some fun playing with sockets, providers, and learning about frontend to server communication. 
